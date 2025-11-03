@@ -1,18 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Sabrinas Geburtstag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scoreboard.css">
 </head>
 <body>
-    <script src="load.js"></script>
+    <script src="scoreboard.js"></script>
+    <div class="paper-background">
+        <div class="h1-wrapper">
+            <img src="media/j1.PNG" class="h1-paper">
+            <h1>Scoreboard</h1>
+        </div>
+        <br>
 
-    <h1>Scoreboard</h1>
-    <table id="scoreboard">
-        <thead>
-        <tr><th>Name</th><th>Punkte</th><th>Erledigte Stationen</th></tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <div class="container">
+            <label for="tabSelector">Wähle ein Spiel:</label>
+            <select id="tabSelector">
+                <option value="beerpong">Beerpong</option>
+                <option value="walter">Wo ist Walter?</option>
+                <option value="ballen">Ballen</option>
+                <option value="bottleflip">Bottleflip</option>
+                <option value="mario">Mario Kart</option>
+                <option value="muttern">Muttern</option>
+                <option value="tattoo">Tätowieren</option>
+                <option value="quiz">Quiz</option>
+            </select>
+
+            <!-- Beerpong -->
+            <table class="tab-content active" id="beerpong">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Wo ist Walter -->
+            <table class="tab-content" id="walter">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Ballen -->
+            <table class="tab-content" id="ballen">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Bottleflip -->
+            <table class="tab-content" id="bottleflip">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Mario Kart -->
+            <table class="tab-content" id="mario">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Muttern -->
+            <table class="tab-content" id="muttern">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Tätowieren -->
+            <table class="tab-content" id="tattoo">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Quiz -->
+            <table class="tab-content" id="quiz">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
