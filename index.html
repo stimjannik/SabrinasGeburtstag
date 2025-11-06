@@ -3,9 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <title>Sabrinas Geburtstag</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Sabrinas Geburtstag!!1!!1!!111!!ELF!!!</h1>
-    <a href="scoreboard.html">Scoreboard</a>
+<script src="index.js"></script>
+
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#intro" class="nav-logo">
+            <img src="media/logo.svg" alt="Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Start</a></li>
+            <li><a href="#map">Spielfeld</a></li>
+            <li><a href="#games">Spiele</a></li>
+            <li><a href="#scoreboard">Scoreboard</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="intro">
+    <img src="media/logo.svg" alt="Logo" class="logo">
+    <p class="subtitle">Hallooo :) im folgenden findest du die Adressen der Stationen, sowie die aktuellen Spielergebnisse pro Spiel.</p>
+</section>
+
+<section id="map">
+    <img src="media/map.png" alt="Party Bild">
+    <div class="map-box">
+        <ul>
+            <li><a href="https://maps.app.goo.gl/MmZTF5bVVcV8VkECA" target="_blank">🏠 Böhm - Deinselsgasse 13</a></li>
+            <li><a href="https://maps.app.goo.gl/CQgzuf9GjE3hLHXj9" target="_blank">🏠 Lahmann - Münsterplatz 2</a></li>
+            <li><a href="https://maps.app.goo.gl/A5yWqZDL73qjroHX6" target="_blank">🏠 Schmidt - Schaffnerstraße 26</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="games">
+    <h1>Spiele</h1>
+    <div class="games-grid">
+        <a href="#scoreboard" class="tile" onclick=select("beerpong")>
+            <img src="media/games/beerpong.png" alt="">
+            Beerpong
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("walter")>
+            <img src="media/games/walter.png" alt="">
+            Wo ist Walter?
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("schieben")>
+            <img src="media/games/schieben.png" alt="">
+            Schieben
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("bottleflip")>
+            <img src="media/games/bootleflip.png" alt="">
+            Bottleflip
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("mario")>
+            <img src="media/games/mariokart.png" alt="">
+            Mario Kart
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("nageln")>
+            <img src="media/games/nageln.png" alt="">
+            Nageln
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("tattoo")>
+            <img src="media/games/tattoo.png" alt="">
+            Tätowieren
+        </a>
+        <a href="#scoreboard" class="tile" onclick=select("quiz")>
+            <img src="media/games/quiz.png" alt="">
+            Quiz
+        </a>
+    </div>
+</section>
+
+<section id="scoreboard">
+    <script src="scoreboard.js"></script>
+    <div class="scoreboard">
+        <div class="h1-wrapper">
+            <img src="media/j1.PNG" class="h1-paper">
+            <h1>Scoreboard</h1>
+        </div>
+        <br>
+
+        <div class="container">
+            <label for="tabSelector">Wähle ein Spiel:</label>
+            <select id="tabSelector">
+                <option value="beerpong">Beerpong</option>
+                <option value="walter">Wo ist Walter?</option>
+                <option value="schieben">Schieben</option>
+                <option value="bottleflip">Bottleflip</option>
+                <option value="mario">Mario Kart</option>
+                <option value="nageln">Nageln</option>
+                <option value="tattoo">Tätowieren</option>
+                <option value="quiz">Quiz</option>
+            </select>
+
+            <!-- Beerpong -->
+            <table class="tab-content active" id="beerpong">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Wo ist Walter -->
+            <table class="tab-content" id="walter">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Schieben -->
+            <table class="tab-content" id="schieben">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Bottleflip -->
+            <table class="tab-content" id="bottleflip">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Mario Kart -->
+            <table class="tab-content" id="mario">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Nageln -->
+            <table class="tab-content" id="nageln">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Tätowieren -->
+            <table class="tab-content" id="tattoo">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Quiz -->
+            <table class="tab-content" id="quiz">
+                <thead>
+                <tr><th>Name</th><th>Punktzahl</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>

@@ -14,10 +14,10 @@ const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx
 const games = {
     1: "beerpong",
     2: "walter",
-    3: "ballen",
+    3: "schieben",
     4: "bottleflip",
     5: "mario",
-    6: "muttern",
+    6: "nageln",
     7: "tattoo",
     8: "quiz",
 }
@@ -49,12 +49,15 @@ async function loadScores() {
         if(!game) continue;
         const scores = data.get(game);
         scores.sort((a, b) => b.score - a.score);
-        console.log(`#${game}`);
         const tbody = document.querySelector(`#${game} tbody`);
         tbody.innerHTML = "";
         for(const score of scores){
             const tr = document.createElement("tr");
-                tr.innerHTML = `<td>${score.playerName}</td><td>${score.score}</td>`;
+                if(game == "quiz" || game == "tattoo") {
+                    tr.innerHTML = `<td>${score.playerName}</td><td>???</td>`;
+                } else{
+                    tr.innerHTML = `<td>${score.playerName}</td><td>${score.score}</td>`;
+                }
                 tbody.appendChild(tr);
         }
     }

@@ -1,0 +1,593 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+:root {
+    --color-1: #1a1a2e;
+    --color-2: #0f3460;
+    --color-3: #16213e;
+    --color-4: #533483;
+    --accent: #ffd369;
+    --tile: #e94560;
+    --tile-hover: #ff6b81;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay Navbar */
+#navbar {
+    position: fixed; /* Overlay über dem Content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* hell, halbtransparent */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    transition: background 0.3s; /* optional: für Scroll-Effekt */
+}
+
+/* Container: Logo links, Links rechts */
+#navbar .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+#navbar .nav-logo img {
+    height: 90px;
+    width: auto;
+}
+
+/* Links */
+#navbar .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#navbar .nav-links li a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+#navbar .nav-links li a:hover {
+    color: var(--accent);
+}
+
+/* Hamburger */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #222;
+}
+
+/* Kein Padding für body nötig, Navbar überlagert Content */
+body {
+    padding-top: 0;
+}
+
+/* Aktualisiert --vh bei Größenänderung */
+@supports (height: 100dvh) {
+    :root {
+        --vh: 100dvh;
+    }
+}
+
+/*Intro */
+
+#intro {
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: #ffffff;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#intro .logo {
+    width: auto;
+    max-width: 90vw;    /* nutzt fast den ganzen Bildschirm */
+    max-height: 70vh;   /* darf richtig groß werden */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 2rem;
+}
+
+#intro .subtitle {
+    font-size: clamp(1rem, 4vw, 1.8rem); /* dynamisch, aber kleiner max-Wert */
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    white-space: normal; /* erlaubt Zeilenumbruch */
+    line-height: 1.4;    /* Abstand zwischen den Zeilen */
+    max-width: 90vw;     /* Text nicht breiter als Viewport */
+}
+
+/* Abschnitt 2 – Info */
+#map {
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: #eae0c8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+#map img {
+    width: auto;
+    max-width: 120vw;
+    max-height: 80vh;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: -3rem;
+}
+
+.map-box {
+    width: 100%;               /* volle Breite des Containers */
+    max-width: 400px;          /* optional für große Screens */
+    padding: 16px 20px;        /* bleibt innen */
+    border: 2px solid #bfa66a;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 230, 0.95);
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #4b3e2b;
+    text-align: left;
+    margin: 1rem auto;         /* zentriert */
+    box-sizing: border-box;
+}
+
+.map-box ul {
+    list-style-type: none;  /* keine Standardpunkte */
+    padding: 0;
+    margin: 0;
+}
+
+.map-box li {
+    list-style-type: none;  /* zusätzlich für li */
+    margin: 0.8rem 0;
+    padding-left: 0;         /* keine Einrückung */
+    display: flex;           /* optional, falls wir Icon Abstand wollen */
+    align-items: center;
+}
+
+/* Häuser direkt im Text bleiben */
+.map-box li a {
+    text-decoration: none;
+    color: #4b3e2b;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.map-box li a:hover {
+    color: var(--accent);
+}
+
+#map ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#map li {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    margin: 0.3rem 0;
+}
+
+/* Abschnitt 3 – games */
+#games {
+    background-color: #8c6e4a; /* dunklerer Hintergrund */
+    min-height: calc(var(--vh, 1vh) * 100);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: relative;
+}
+
+#games h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.games-hero img {
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4x2 Desktop */
+    grid-template-rows: repeat(2, auto);
+    gap: 100px;
+    justify-items: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.tile {
+    background-color: rgba(255, 245, 210, 0.9); /* hellere Boxen */
+    border: 2px solid #bfa66a;
+    border-radius: 12px;
+    padding: 30px 20px;
+    color: #4b3e2b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.tile img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 245, 210, 1); /* etwas heller beim Hover */
+}
+
+
+/* Responsives Verhalten */
+@media (max-width: 768px) {
+    section {
+        padding: 8vw;
+    }
+
+    #map ul {
+        text-align: center;
+    }
+
+    .games-grid {
+        gap: 15px;
+        grid-template-columns: repeat(1, 1fr); /* 4x2 Desktop */
+        grid-template-rows: repeat(1, auto);
+    }
+
+    .tile {
+        max-width: 90%;
+        padding: 25px 15px;
+    }
+
+    .tile img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #navbar .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    #navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    #navbar .nav-links.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    #intro .text-box {
+        padding: 6vw 8vw;
+    }
+
+    #map ul {
+        font-size: 0.9rem;
+    }
+
+    #games {
+        gap: 14px;
+    }
+
+    .map-box {
+        max-width: none;       /* keine Beschränkung mehr */
+        width: calc(100vw - 32px); /* 16px Abstand links/rechts */
+        padding: 16px;          /* Padding bleibt innen */
+    }
+}
+
+
+/*Scoreboard*/
+
+/* Container für das Scoreboard */
+#scoreboard {
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #eae0c8;
+    display: flex;
+    flex-direction: column;      /* damit Inhalt untereinander */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Überschrift + PNG */
+.h1-wrapper {
+    margin-top: 10em;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.h1-paper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: auto;
+    z-index: 0;
+}
+
+.h1-wrapper h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Uncial Antiqua', cursive;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    padding: 20px 40px;
+    color: #4b3e2b;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Container für Select + Tab-Content */
+.container {
+    width: 700px;
+    max-width: 90%;
+    padding: 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fdf6e3 0%, #f5e6c5 100%);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.3);
+    border: 2px solid #d0b889;
+}
+
+/* Label */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #4b3e2b;
+}
+
+/* Select */
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #bfa66a;
+    border-radius: 6px;
+    background-color: rgba(255,255,230,0.9);
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4b3e2b;
+}
+
+/* Tab-Inhalt */
+.tab-content {
+    display: none;
+    animation: fancyIn 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    transform-origin: top center;
+    background-color: rgba(255, 250, 220, 0.75);
+    border: 2px solid rgba(191, 166, 106, 0.5);
+    border-radius: 8px;
+    padding: 16px 15%;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.15);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tabellen-Styling */
+table {
+    width: 100%;
+    max-width: 750px;
+    margin: 12px auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 250, 220, 0.95);
+    border: 2px solid #bfa66a;
+}
+
+th, td {
+    border: 1px solid #8c6e4a;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4b3e2b;
+    width: 80%;
+}
+
+th {
+    background-color: rgba(200, 180, 140, 0.8);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Sektionstitel innerhalb des Scoreboards */
+.section-title {
+    background: rgba(230, 210, 160, 0.8);
+    font-weight: bold;
+    text-align: center;
+    color: #4b3e2b;
+    padding: 8px 0;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .h1-wrapper h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+        padding: 15px 30px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    select {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    th, td {
+        font-size: 1rem;
+        padding: 12px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .h1-wrapper h1 {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+        padding: 12px 20px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+}
+
+
+@keyframes fancyIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(5px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes h1In {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px) scale(1.05);
+    }
+    80% {
+        transform: translateY(-5px) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+        gap: 16px;
+    }
+
+    label, select, th, td {
+        font-size: 1.3rem;
+    }
+
+    select {
+        padding: 14px;
+    }
+
+    th, td {
+        padding: 14px 16px;
+    }
+
+    .tab-content {
+        animation: fancyIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 3.4rem;
+    }
+
+    label, select, th, td {
+        font-size: 1.4rem;
+    }
+
+    select {
+        padding: 16px;
+    }
+}
