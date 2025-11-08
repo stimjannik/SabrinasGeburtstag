@@ -15,11 +15,10 @@ html, body {
     padding: 0;
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
-    color: white;
+    color: #4b3e2b;
 }
 
 section {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +69,7 @@ section {
 }
 
 #navbar .nav-links li a {
-    color: #222;
+    color: #4b3e2b;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.2rem;
@@ -106,7 +105,6 @@ body {
 /*Intro */
 
 #intro {
-    height: calc(var(--vh, 1vh) * 100);
     background-color: #ffffff;
     color: #222;
     display: flex;
@@ -141,7 +139,6 @@ body {
 
 /* Abschnitt 2 – Info */
 #map {
-    height: calc(var(--vh, 1vh) * 100);
     background-color: #eae0c8;
     display: flex;
     flex-direction: column;
@@ -158,10 +155,18 @@ body {
 #map img {
     width: auto;
     max-width: 120vw;
-    max-height: 80vh;
+    max-height: 70vh;
     height: auto;
     object-fit: contain;
     margin-bottom: -3rem;
+    margin-top: -3rem;
+}
+
+#map h1 {
+    margin-top: 3em;
+    color: #4b3e2b;
+    margin-bottom: -0.1em;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 .map-box {
@@ -220,7 +225,6 @@ body {
 /* Abschnitt 3 – games */
 #games {
     background-color: #8c6e4a; /* dunklerer Hintergrund */
-    min-height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,9 +237,11 @@ body {
     position: relative;
 }
 
-#games h2 {
+
+
+#games h1 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     color: white;
 }
 
@@ -287,10 +293,18 @@ body {
 }
 
 
+@media screen and (min-width: 1000px) {
+    section {
+        min-height: 100vh;
+    }
+}
+
 /* Responsives Verhalten */
 @media (max-width: 768px) {
     section {
         padding: 8vw;
+        min-height: 60vh;
+        max-height: 70vh;
     }
 
     #map ul {
@@ -337,6 +351,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    #intro, #map, #games {
+        height: calc(var(--vh, 1vh) * 50);
+    }
+
+    section {
+        max-height: 50vh;
+    }
+
     #intro .text-box {
         padding: 6vw 8vw;
     }
@@ -590,4 +612,10 @@ th {
     select {
         padding: 16px;
     }
+}
+
+#warning {
+    color: red;
+    font-size: 1em;
+    font-weight: 700;
 }

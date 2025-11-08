@@ -46,6 +46,7 @@ async function loadScores() {
         }}
 
     for(const game of data.keys()){
+        console.log(game);
         if(!game) continue;
         const scores = data.get(game);
         scores.sort((a, b) => b.score - a.score);
@@ -54,7 +55,10 @@ async function loadScores() {
         for(const score of scores){
             const tr = document.createElement("tr");
                 if(game == "quiz" || game == "tattoo") {
-                    tr.innerHTML = `<td>${score.playerName}</td><td>???</td>`;
+                    const warning = document.createElement("p");
+                    warning.setAttribute("id", "warning");
+                    warning.textContent = "Die Bewertung wird erst bei der Siegerehrung bekannt gegeben!";
+                    document.querySelector(`#${game}`).append(warning);
                 } else{
                     tr.innerHTML = `<td>${score.playerName}</td><td>${score.score}</td>`;
                 }
