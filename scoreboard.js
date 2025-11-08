@@ -54,14 +54,8 @@ async function loadScores() {
         tbody.innerHTML = "";
         for(const score of scores){
             const tr = document.createElement("tr");
-                if(game == "quiz" || game == "tattoo") {
-                    const warning = document.createElement("p");
-                    warning.setAttribute("id", "warning");
-                    warning.textContent = "Die Bewertung wird erst bei der Siegerehrung bekannt gegeben!";
-                    document.querySelector(`#${game}`).append(warning);
-                } else{
                     tr.innerHTML = `<td>${score.playerName}</td><td>${score.score}</td>`;
-                }
+                
                 tbody.appendChild(tr);
         }
     }
